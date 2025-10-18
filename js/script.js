@@ -1,6 +1,6 @@
 // Basic site JS: active nav highlighting and simple contact form validation
 
-document.addEventListener('DOMContentLoaded', function () {
+function initSiteScripts() {
   // Active nav link based on filename
   try {
     const links = document.querySelectorAll('.nav-links a');
@@ -82,4 +82,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const open = target.classList.toggle('open');
     btn.textContent = open ? 'Daha az göster' : 'Daha fazlasını oku';
   }
-});
+}
+
+// Run init immediately if DOM already loaded (fixes some desktop/Edge race cases), otherwise wait for DOMContentLoaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSiteScripts);
+} else {
+  initSiteScripts();
+}
