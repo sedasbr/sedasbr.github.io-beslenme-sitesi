@@ -35,7 +35,27 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      // For now, just show a success message. In production you'd POST to a server.
+      // If form has an action (e.g., Formspree), submit via fetch to keep user on page and show success
+      const formAction = contactForm.getAttribute('action');
+      if (formAction) {
+        const data = new FormData(contactForm);
+        fetch(formAction, { method: contactForm.method || 'POST', body: data, headers: { 'Accept': 'application/json' } })
+          .then(res => {
+            if (res.ok) return res.json().catch(() => ({}));
+            return Promise.reject(res);
+          })
+          .then(() => {
+            const success = document.getElementById('contact-success');
+            if (success) { success.style.display = 'block'; }
+            contactForm.reset();
+          })
+          .catch(() => {
+            alert('Gönderimde bir hata oldu. Lütfen daha sonra tekrar deneyin.');
+          });
+        return;
+      }
+
+      // Fallback: simple alert
       alert('Mesajınız alındı. Teşekkürler, en kısa sürede dönüş yapacağız.');
       contactForm.reset();
     });
