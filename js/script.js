@@ -61,14 +61,25 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Read-more toggles
+  // Read-more toggles: direct listeners + delegation
   const readBtns = document.querySelectorAll('.read-more-btn');
   readBtns.forEach(btn => {
-    btn.addEventListener('click', function () {
-      const target = document.getElementById(btn.getAttribute('data-target'));
-      if (!target) return;
-      const open = target.classList.toggle('open');
-      btn.textContent = open ? 'Daha az göster' : 'Daha fazlasını oku';
-    });
+    btn.addEventListener('click', toggleReadMore);
   });
+
+  // event delegation as a fallback
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest && e.target.closest('.read-more-btn');
+    if (btn) toggleReadMore.call(btn, e);
+  });
+
+  function toggleReadMore(e) {
+    const btn = this;
+    const targetId = btn.getAttribute('data-target');
+    if (!targetId) return;
+    const target = document.getElementById(targetId);
+    if (!target) return;
+    const open = target.classList.toggle('open');
+    btn.textContent = open ? 'Daha az göster' : 'Daha fazlasını oku';
+  }
 });
