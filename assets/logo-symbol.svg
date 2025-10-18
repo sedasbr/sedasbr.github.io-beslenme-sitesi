@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="DengeliYaşam logo">
+  <defs>
+    <linearGradient id="lg" x1="0" x2="1">
+      <stop offset="0" stop-color="#20df6c" />
+      <stop offset="1" stop-color="#18b35a" />
+    </linearGradient>
+  </defs>
+  <circle cx="24" cy="24" r="22" fill="url(#lg)" />
+  <path d="M15 28c2-6 8-9 11-11 1.5-.9 4-3 6-1 2 2-1 4-2 5-2 3-8 6-12 9-1 .7-3 0-3-2z" fill="#fff" opacity="0.95"/>
+</svg>

@@ -70,3 +70,13 @@ if (document.readyState === 'loading') {
 } else {
   initSiteScripts();
 }
+
+// Footer year auto-update
+(function setFooterYear(){
+  try {
+    const footer = document.querySelector('footer p');
+    if (!footer) return;
+    const year = new Date().getFullYear();
+    footer.innerHTML = footer.innerHTML.replace(/©\s*\d{4}/, '© ' + year);
+  } catch (e) { /* ignore */ }
+})();
