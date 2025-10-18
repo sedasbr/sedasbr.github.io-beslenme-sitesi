@@ -60,4 +60,15 @@ document.addEventListener('DOMContentLoaded', function () {
       contactForm.reset();
     });
   }
+
+  // Read-more toggles
+  const readBtns = document.querySelectorAll('.read-more-btn');
+  readBtns.forEach(btn => {
+    btn.addEventListener('click', function () {
+      const target = document.getElementById(btn.getAttribute('data-target'));
+      if (!target) return;
+      const open = target.classList.toggle('open');
+      btn.textContent = open ? 'Daha az göster' : 'Daha fazlasını oku';
+    });
+  });
 });

@@ -80,6 +80,16 @@ button[type=submit]{background:linear-gradient(90deg,var(--green),var(--accent))
 /* Footer */
 footer{padding:28px 20px;background:transparent;color:var(--muted);text-align:center;border-top:1px solid rgba(15,36,24,0.03);margin-top:40px}
 
+/* Read-more / expandable content */
+.read-more-btn{background:transparent;border:0;color:var(--green);font-weight:700;cursor:pointer;padding:6px 0}
+.more-content{display:none;margin-top:10px;color:var(--text);line-height:1.6}
+.more-content.open{display:block}
+
+@media (max-width:600px){
+  .hero{padding:36px 12px}
+  .hero h1{font-size:1.9rem}
+}
+
 /* Utilities */
 .text-muted{color:var(--muted)}
 
