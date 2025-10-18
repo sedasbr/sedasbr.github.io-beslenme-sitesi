@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="40" viewBox="0 0 120 40" role="img" aria-label="DengeliYaşam logo">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#20df6c" />
+      <stop offset="1" stop-color="#18b35a" />
+    </linearGradient>
+  </defs>
+  <rect width="120" height="40" rx="8" fill="url(#g)" />
+  <g transform="translate(12,24)">
+    <circle cx="0" cy="-6" r="6" fill="#fff" opacity="0.9" />
+    <rect x="10" y="-12" width="60" height="12" rx="4" fill="#fff" opacity="0.95" />
+    <text x="18" y="2" font-family="Manrope, Noto Sans, Arial" font-size="12" font-weight="800" fill="#07220f">DengeliYaşam</text>
+  </g>
+</svg>
